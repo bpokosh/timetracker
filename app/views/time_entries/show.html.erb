@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Duration:</b>
+  <%= @time_entry.duration %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @time_entry.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_time_entry_path(@time_entry) %> |
+<%= link_to 'Back', time_entries_path %>

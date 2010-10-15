@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_employee!
+
   # GET /projects
   # GET /projects.xml
   def index

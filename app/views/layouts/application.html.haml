@@ -29,6 +29,9 @@
           %li
             - link_to projects_path, :class => current_page?(projects_path) ? "gt-active" : "" do
               %span Projects
+          %li
+            - link_to time_entries_path, :class => current_page?(time_entries_path) ? "gt-active" : "" do
+              %span Time Entries
     
     .gt-bd.gt-cols.clearfix
     
