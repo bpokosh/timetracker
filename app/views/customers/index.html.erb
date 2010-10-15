@@ -1,0 +1,35 @@
+<h1>Listing customers</h1>
+
+<table class='gt-list-table'>
+  <tr>
+    <th>Company</th>
+    <th>Address1</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Phone1</th>
+    <th>Website</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.company %></td>
+    <td><%= customer.address1 %></td>
+    <td><%= customer.city %></td>
+    <td><%= customer.state %></td>
+    <td><%= customer.zip %></td>
+    <td><%= customer.phone1 %></td>
+    <td><%= customer.website %></td>
+    <td><%= link_to 'Show', customer %></td>
+    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Customer', new_customer_path %>
