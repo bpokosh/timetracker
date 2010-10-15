@@ -9,13 +9,13 @@
 </p>
 
 <p>
-  <b>Start Time:</b>
-  <%= @time_entry.start_time %>
+  <b>Project:</b>
+  <%= @time_entry.project.name %>
 </p>
 
 <p>
-  <b>End Time:</b>
-  <%= @time_entry.end_time %>
+  <b>Completed At:</b>
+  <%= @time_entry.completed_at.try(:to_s, :long) %>
 </p>
 
 <p>
