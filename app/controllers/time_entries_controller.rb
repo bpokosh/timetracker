@@ -33,9 +33,9 @@ class TimeEntriesController < ApplicationController
         require 'csv'
         @output = ""
         CSV(@output) do |csv|
-          csv << [ 'Company', 'Project', 'Employee', 'Duration', 'Start Time', 'End Time']
+          csv << [ 'Company', 'Project', 'Employee', 'Duration', 'Completed At']
           @time_entries.each do |entry|
-            csv << [ entry.project.customer.company, entry.project.name, entry.employee.email, entry.duration, entry.start_time, entry.end_time ]
+            csv << [ entry.project.customer.company, entry.project.name, entry.employee.email, entry.duration, entry.completed_at ]
           end
         end
       end
