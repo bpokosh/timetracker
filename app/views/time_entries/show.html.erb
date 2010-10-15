@@ -1,8 +1,26 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <b>Employee:</b>
+  <%= @time_entry.employee.email %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @time_entry.project.customer.company %>
+</p>
+
+<p>
+  <b>Start Time:</b>
+  <%= @time_entry.start_time %>
+</p>
+
+<p>
+  <b>End Time:</b>
+  <%= @time_entry.end_time %>
+</p>
 
 <p>
   <b>Duration:</b>
-  <%= @time_entry.duration %>
+  <%= format_time @time_entry.duration %>
 </p>
 
 <p>
