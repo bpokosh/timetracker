@@ -66,3 +66,33 @@
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
+
+<% if @customer.time_entries.size > 0 %>
+  <br /><br /><br />
+  <h2>Time Entries</h2>
+  <table class='gt-list-table'>
+    <tr>
+      <th>Project</th>
+      <th>Duration</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @customer.time_entries.each do |time_entry| %>
+    <tr>
+      <td><%= time_entry.project.name %></td>
+      <td><%= format_time time_entry.duration %></td>
+      <td><%= time_entry.description %></td>
+      <td><%= link_to 'Show', time_entry %></td>
+      <td><%= link_to 'Edit', edit_time_entry_path(time_entry) %></td>
+      <td><%= link_to 'Destroy', time_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+  <p>
+    <b>Total time spent:</b>
+    <%= format_time @customer.time_entries.sum(:duration) %>
+  </p>
+<% end %>
