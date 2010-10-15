@@ -7,8 +7,8 @@ Timetracker::Application.routes.draw do
   end
   resources :projects
   resources :customers
-  resources :employees
   devise_for :employees
+  # resources :employees, :only => :show
   match 'help' => 'help#index', :as => :help
 
   # The priority is based upon order of creation:

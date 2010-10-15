@@ -84,7 +84,7 @@
   <% @customer.time_entries.each do |time_entry| %>
     <tr>
       <td><%= link_to time_entry.project.name, time_entry.project %></td>
-      <td><%= link_to time_entry.employee.email, time_entry.employee %></td>
+      <td><%= time_entry.employee.email %></td>
       <td><%= format_time time_entry.duration %></td>
       <td><%= time_entry.description %></td>
       <td><%= link_to 'Show', time_entry %></td>

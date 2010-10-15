@@ -24,7 +24,7 @@
     <tr>
       <td><%= format_time time_entry.duration %></td>
       <td><%= time_entry.description %></td>
-      <td><%= link_to time_entry.employee.email, time_entry.employee %></td>
+      <td><%= time_entry.employee.email %></td>
       <td><%= link_to 'Show', time_entry %></td>
       <td><%= link_to 'Edit', edit_time_entry_path(time_entry) %></td>
       <td><%= link_to 'Destroy', time_entry, :confirm => 'Are you sure?', :method => :delete %></td>
