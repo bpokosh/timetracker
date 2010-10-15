@@ -1,0 +1,21 @@
+<h1>Time Log for <%= @employee.email %></h1>
+
+<table class='gt-list-table'>
+  <tr>
+    <th>Customer/Project</th>
+    <th>Duration</th>
+    <th>Completed At</th>
+    <th>Description</th>
+  </tr>
+
+<% @employee.time_entries.each do |time_entry| %>
+  <tr>
+    <td><%= link_to time_entry.project.customer.company, time_entry.project.customer %>  - <%= link_to time_entry.project.name, time_entry.project %></td>
+    <td><%= format_time time_entry.duration %></td>
+    <td><%= time_entry.completed_at.try(:to_s, :long) %></td>
+    <td><%= time_entry.description %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<%= link_to 'View As PDF', employee_path(@employee, :format => :pdf) %>

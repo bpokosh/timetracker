@@ -7,6 +7,7 @@ Timetracker::Application.routes.draw do
   end
   resources :projects
   resources :customers
+  resources :employees
   devise_for :employees
   match 'help' => 'help#index', :as => :help
 

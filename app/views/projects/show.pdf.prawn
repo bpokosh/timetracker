@@ -6,7 +6,7 @@ pdf.move_down 10
 if @project.time_entries.size > 0
   entries = @project.time_entries.collect do |entry|
     [
-        entry.project.name,
+        entry.employee.email,
         entry.completed_at.try(:to_s, :long),
         format_time(entry.duration),
         entry.description
@@ -15,6 +15,6 @@ if @project.time_entries.size > 0
 
   pdf.table entries, :border_style => :grid,  
                      :row_colors => ["FFFFFF", "DDDDDD"],  
-                     :headers => ["Project", "Completed At", "Duration", "Description"],  
+                     :headers => ["Employee", "Completed At", "Duration", "Description"],  
                      :align => { 0 => :left, 1 => :right, 2 => :right, 3 => :right }
 end
