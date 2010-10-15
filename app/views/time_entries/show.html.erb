@@ -1,16 +1,16 @@
 <p>
   <b>Employee:</b>
-  <%= @time_entry.employee.email %>
+  <%= link_to @time_entry.employee.email, @time_entry.employee %>
 </p>
 
 <p>
   <b>Customer:</b>
-  <%= @time_entry.project.customer.company %>
+  <%= link_to @time_entry.project.customer.company, @time_entry.project.customer %>
 </p>
 
 <p>
   <b>Project:</b>
-  <%= @time_entry.project.name %>
+  <%= link_to @time_entry.project.name, @time_entry.project %>
 </p>
 
 <p>
