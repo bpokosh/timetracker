@@ -1,3 +1,4 @@
+require 'CSV'
 class TimeEntriesController < ApplicationController
   before_filter :authenticate_employee!
 
@@ -8,6 +9,15 @@ class TimeEntriesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+      format.csv do
+        @output = ""
+        CSV(@output) do |csv|
+          csv << [ 'Company', 'Project', 'Employee', 'Duration', 'Start Time', 'End Time']
+          @time_entries.each do |entry|
+            csv << [ entry.project.customer.company, entry.project.name, entry.employee.email, entry.duration, entry.start_time, entry.end_time ]
+          end
+        end
+      end
       format.xml  { render :xml => @time_entries }
     end
   end
