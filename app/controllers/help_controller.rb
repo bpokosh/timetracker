@@ -1,7 +1,4 @@
 class HelpController < ApplicationController
   before_filter :authenticate_employee!
-  
-  def index
-  end
-
+  layout 'admin'
 end

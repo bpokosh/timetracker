@@ -1,5 +1,6 @@
 class TimeEntriesController < ApplicationController
   before_filter :authenticate_employee!
+  layout 'admin'
   
   def start
     @time_entry = TimeEntry.find(params[:id])

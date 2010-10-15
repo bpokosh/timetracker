@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_employee!
+  layout 'admin'
 
   # GET /projects
   # GET /projects.xml
