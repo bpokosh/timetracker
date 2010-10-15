@@ -29,7 +29,7 @@ class TimeEntriesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.csv do
-        require 'CSV'
+        require 'csv'
         @output = ""
         CSV(@output) do |csv|
           csv << [ 'Company', 'Project', 'Employee', 'Duration', 'Start Time', 'End Time']
