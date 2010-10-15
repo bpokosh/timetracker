@@ -3,6 +3,7 @@ Timetracker::Application.routes.draw do
   resources :projects
   resources :customers
   devise_for :employees
+  match 'help' => 'help#index', :as => :help
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -20,6 +20,8 @@
         .gt-util-box-inner
           - if employee_signed_in?
             = link_to 'logout', destroy_employee_session_path
+            |
+            = link_to 'help', help_path
       
       .gt-nav
         %ul
@@ -31,7 +33,7 @@
               %span Projects
           %li
             - link_to time_entries_path, :class => current_page?(time_entries_path) ? "gt-active" : "" do
-              %span Time Entries
+              %span Time Log
     
     .gt-bd.gt-cols.clearfix
     
