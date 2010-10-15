@@ -12,7 +12,6 @@
   <h2>Time Entries</h2>
   <table class='gt-list-table'>
     <tr>
-      <th>Project</th>
       <th>Duration</th>
       <th>Description</th>
       <th></th>
@@ -22,7 +21,6 @@
 
   <% @project.time_entries.each do |time_entry| %>
     <tr>
-      <td><%= time_entry.project.name %></td>
       <td><%= format_time time_entry.duration %></td>
       <td><%= time_entry.description %></td>
       <td><%= link_to 'Show', time_entry %></td>
