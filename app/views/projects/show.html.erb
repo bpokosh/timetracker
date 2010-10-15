@@ -3,6 +3,36 @@
   <%= @project.name %>
 </p>
 
-
+<%= link_to 'View PDF', project_path(@project, :format => :pdf) %> |
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<% if @project.time_entries.size > 0 %>
+  <br /><br /><br />
+  <h2>Time Entries</h2>
+  <table class='gt-list-table'>
+    <tr>
+      <th>Project</th>
+      <th>Duration</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @project.time_entries.each do |time_entry| %>
+    <tr>
+      <td><%= time_entry.project.name %></td>
+      <td><%= format_time time_entry.duration %></td>
+      <td><%= time_entry.description %></td>
+      <td><%= link_to 'Show', time_entry %></td>
+      <td><%= link_to 'Edit', edit_time_entry_path(time_entry) %></td>
+      <td><%= link_to 'Destroy', time_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+  <p>
+    <b>Total time spent:</b>
+    <%= format_time @project.time_entries.sum(:duration) %>
+  </p>
+<% end %>

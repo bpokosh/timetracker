@@ -1,11 +1,6 @@
 class CustomersController < ApplicationController
   before_filter :authenticate_employee!
   
-  prawnto :prawn => { :left_margin => 40,
-                      :right_margin => 40,
-                      :top_margin => 40,
-                      :bottom_margin => 40 }
-  
   # GET /customers
   # GET /customers.xml
   def index
