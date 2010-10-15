@@ -1,4 +1,5 @@
 Timetracker::Application.routes.draw do
+  resources :projects
   resources :customers
   devise_for :employees
 
