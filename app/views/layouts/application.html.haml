@@ -26,6 +26,9 @@
           %li
             - link_to customers_path, :class => current_page?(customers_path) ? "gt-active" : "" do
               %span Customers
+          %li
+            - link_to projects_path, :class => current_page?(projects_path) ? "gt-active" : "" do
+              %span Projects
     
     .gt-bd.gt-cols.clearfix
     
@@ -35,13 +38,6 @@
             = msg
             = link_to image_tag('cross-circle-frame.png'), "#", :class => 'hide_parent'
         = yield
-    
-      .gt-sidebar
-        .gt-sidebar-nav
-          %h3 Quick Links
-          %ul
-            = yield(:quicklinks)
-          
     
     .gt-footer
       %p Copyright &copy; 2010
