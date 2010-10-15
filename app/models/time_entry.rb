@@ -7,6 +7,8 @@ class TimeEntry < ActiveRecord::Base
   before_save :calculate_duration
   
   def calculate_duration
-    self.duration = (self.end_time - self.start_time) / 60
+    # if self.duration.blank?
+    #   self.duration = (self.end_time - self.start_time) / 60
+    # end
   end
 end

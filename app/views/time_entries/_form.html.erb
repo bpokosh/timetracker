@@ -21,29 +21,18 @@
   </div>
 
   <div class="field">
-    <%= f.label :start_time %><br />
-    <%= f.text_field :start_time %>
+    <%= f.label :completed_at %><br />
+    <%= f.text_field :completed_at %>
   </div>
   <script type="text/javascript">
-    $("#time_entry_start_time").AnyTime_picker(
-        { format: "%Y-%m-%d %H:%i",
-          hideInput: true,
-          placement: "inline" } );
-  </script>
-  
-  <div class="field">
-    <%= f.label :end_time %><br />
-    <%= f.text_field :end_time %>
-  </div>
-  <script type="text/javascript">
-    $("#time_entry_end_time").AnyTime_picker(
+    $("#time_entry_completed_at").AnyTime_picker(
         { format: "%Y-%m-%d %H:%i",
           hideInput: true,
           placement: "inline" } );
   </script>
 
   <div class="field">
-    <%= f.label :duration %><br />
+    <%= f.label :duration, 'Duration in minutes' %><br />
     <%= f.text_field :duration %>
   </div>
   <div class="field">

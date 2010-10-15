@@ -1,0 +1,4 @@
+- if entry.start_time.nil?
+  = link_to '(Start Timer)', start_time_entry_path(entry)
+- elsif entry.end_time.nil?
+  = link_to '(Stop Timer)', stop_time_entry_path(entry)

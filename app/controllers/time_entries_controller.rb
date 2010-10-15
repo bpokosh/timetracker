@@ -1,15 +1,35 @@
-require 'CSV'
 class TimeEntriesController < ApplicationController
   before_filter :authenticate_employee!
+  
+  def start
+    @time_entry = TimeEntry.find(params[:id])
+    @time_entry.start_time = Time.now
+    @time_entry.end_time = nil
+    @time_entry.save
+    redirect_to time_entries_path
+  end
+  
+  def stop
+    @time_entry = TimeEntry.find(params[:id])
+    @time_entry.completed_at = Time.now
+    @time_entry.end_time = Time.now
+    @time_entry.duration += (@time_entry.end_time - @time_entry.start_time) / 60
+    @time_entry.start_time = nil
+    @time_entry.save
+    redirect_to time_entries_path
+  end
 
   # GET /time_entries
   # GET /time_entries.xml
   def index
     @time_entries = TimeEntry.all
+    @time_entry = TimeEntry.new
+    @time_entry.employee = current_employee
 
     respond_to do |format|
       format.html # index.html.erb
       format.csv do
+        require 'CSV'
         @output = ""
         CSV(@output) do |csv|
           csv << [ 'Company', 'Project', 'Employee', 'Duration', 'Start Time', 'End Time']
@@ -57,7 +77,7 @@ class TimeEntriesController < ApplicationController
 
     respond_to do |format|
       if @time_entry.save
-        format.html { redirect_to(@time_entry, :notice => 'Time entry was successfully created.') }
+        format.html { redirect_to(time_entries_url, :notice => 'Time entry was successfully created.') }
         format.xml  { render :xml => @time_entry, :status => :created, :location => @time_entry }
       else
         format.html { render :action => "new" }
