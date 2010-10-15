@@ -22,7 +22,7 @@
       <%= format_time time_entry.duration %>
       <%= render 'timer', :entry => time_entry %>
     </td>
-    <td><%= time_entry.completed_at.to_s(:long) %></td>
+    <td><%= time_entry.completed_at.try(:to_s, :long) %></td>
     <td><%= time_entry.description %></td>
     <td><%= link_to 'Show', time_entry %></td>
     <td><%= link_to 'Edit', edit_time_entry_path(time_entry) %></td>

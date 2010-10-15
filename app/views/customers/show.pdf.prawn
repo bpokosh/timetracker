@@ -6,7 +6,7 @@ if @customer.time_entries.size > 0
   entries = @customer.time_entries.collect do |entry|
     [
         entry.project.name,
-        entry.completed_at.to_s(:long),
+        entry.completed_at.try(:to_s, :long),
         format_time(entry.duration),
         entry.description
     ]
